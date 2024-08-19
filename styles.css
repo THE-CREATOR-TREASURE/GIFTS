@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Foldit:wght@100..900&family=Oswald&display=swap');
+
+body {
+    background-color: black;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Project 2 Styles */
+#container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+h1 {
+    user-select: none;
+    padding: 5px;
+}
+
+.text-effect {
+    overflow: hidden;
+    position: relative;
+    filter: contrast(450%) brightness(430%);
+}
+
+.header-text {
+    position: relative;
+    letter-spacing: 3px;
+    background: black;
+    color: transparent;
+    font: 900 100px 'Audiowide', cursive;
+    line-height: 100px;
+    text-align: center;
+    margin: 0;
+}
+
+.header-text::before,
+.header-text::after {
+    content: attr(data-text);
+    color: #fff;
+    filter: blur(0.035em);
+    position: absolute;
+    top: 5px; 
+    left: 5px;
+    pointer-events: none;
+}
+
+.header-text::after {
+    mix-blend-mode: difference;
+}
+
+.gradient,
+.shimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 10;  
+}
+
+.gradient {
+    mix-blend-mode: multiply;
+    filter: blur(3.4em);
+    display: block;
+    width: 1100px;
+    height: 200px;
+    background: linear-gradient(-45deg, #7e0fff 0%, #0fffc1 25%, #0fffc1 40%, #0fffc1 60%, #7e0fff 75%, #7e0fff 100%);
+    animation: 7.5s gradAnim linear infinite;
+}
+
+@keyframes gradAnim {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-1050px);}
+}
+
+.shimmer {
+    animation: light 12s infinite linear;
+    background: radial-gradient(circle, white, transparent 25%) 0 0 / 25% 25%, radial-gradient(circle, white, black 25%) 50% 50% / 12.5% 12.5%;
+    top: -100%; left: -100%;
+    filter: blur(12px);
+    mix-blend-mode: color-dodge;
+}
+
+@keyframes light {
+    100% {
+        transform: translate3d(50%, 50%, 0);
+    }
+}
+
+/* Project 1 Styles */
+#accessForm {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #3cf404, #0c04f6);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+.textInputWrapper {
+    position: relative;
+    width: 180px;
+    margin: 12px 5px;
+    --accent-color: #a3e583;
+}
+
+.textInputWrapper:before,
+.textInputWrapper:after {
+    content: "";
+    left: 0;
+    right: 0;
+    position: absolute;
+    pointer-events: none;
+    bottom: -1px;
+    z-index: 4;
+    width: 100%;
+}
+
+.textInputWrapper:before {
+    transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:after {
+    content: "";
+    transform: scaleX(0);
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    border-bottom: 2px solid var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.textInput::placeholder {
+    transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    opacity: 1;
+    user-select: none;
+    color: rgba(243, 236, 241, 0.429);
+}
+
+.textInputWrapper .textInput {
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
+    max-height: 36px;
+    background-color: #252525;
+    color: #4d4848;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px;
+    width: 100%;
+    border: none;
+}
+
+.textInputWrapper:focus-within .textInput,
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+    background-color: #353535;
+    outline: none;
+}
+
+.textInputWrapper:focus-within .textInput::placeholder {
+    opacity: 0;
+}
+
+button {
+    height: 50px;
+    margin: 5px;
+    width: 120px;
+    background: #333;
+    cursor: pointer;
+    align-items: center;
+    font-family: Consolas, Courier New, monospace;
+    border: solid #404c5d 1px;
+    font-size: 16px;
+    color: rgb(252, 3, 3);
+    transition: 500ms;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #2e2d2d, #212121);
+    box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
+                inset 5px 5px 10px #212121, inset -5px -5px 10px #212121;
+}
+
+button:hover {
+    box-shadow: 1px 1px 13px #20232e, -1px -1px 13px #545b78;
+    color: #4706fb;
+}
+
+button:active {
+    box-shadow: 1px 1px 13px #20232e, -1px -1px 33px #545b78;
+    color: #933939;
+}

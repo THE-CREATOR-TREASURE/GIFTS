@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Project 2 Content -->
+    <div id="container">
+        <div class="text-effect">
+            <h1 class="header-text" data-text="THE CREATOR">THE CREATOR</h1>
+            <div class="gradient"></div>
+            <div class="shimmer"></div>
+        </div>
+    </div>
+
+    <!-- Project 1 Content -->
+    <div id="accessForm">
+        <h2 class="gradient-text">Please Enter the Access Code To Enter</h2>
+        <div class="textInputWrapper">
+            <input placeholder="Enter code" type="text" class="textInput" id="codeInput">
+        </div>
+        <button onclick="checkCode()">ENTER</button>
+        <p id="message"></p>
+    </div>
+    <div id="mainContent" style="display: none;">
+        <!-- This content can be used for when the access code is correctly entered -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
